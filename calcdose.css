@@ -3,12 +3,12 @@ h1 {
 }
 
 body {
-    font-size: small;
+    font-size: xx-large;
     font-family: sans-serif;
 }
 
 .slidecontainer {
-    width: 60%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding: 8px 8px;
@@ -51,7 +51,7 @@ body {
 }
 
 .buttoncontainer {
-    width: 60%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -66,7 +66,6 @@ body {
     padding: 8px 8px;
     text-align: center;
     text-decoration: none;
-    font-size: 28px;
     width: 48px;
 }
 
@@ -90,7 +89,6 @@ body {
     color: white;
     padding: 8px 8px;
     text-align: center;
-    font-size: 28px;
     margin: 4px;
     margin-bottom: 16px;
 }
@@ -100,7 +98,6 @@ body {
     color: white;
     padding: 8px 8px;
     text-align: center;
-    font-size: 28px;
     margin: 4px;
 }
 
@@ -109,3 +106,17 @@ body {
     padding: 16px 24px;
     display: table-cell;
 }
+
+/*
+@media screen and (max-width: 799px) {
+    body {
+        font-size: x-large;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        font-size: xx-large;
+    }
+}
+*/
