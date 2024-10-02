@@ -6,43 +6,31 @@
 </head>
 
 <body>
-    <h1>Round Range Slider</h1>
+    <h1>Calculadora de doses</h1>
 
-    <div class="tablediv">
-        <div class="slidecontainer">
-            <input class="slider" id="weightRange" type="range" min="20" max="300" value="150">
-        </div>
-        <div>
-            <div class="buttoncontainer">
-                <div id="dec" class="button">-</div>
-                <div id="inc" class="button">+</div>
-            </div>
-        </div>
+    <div class="slidecontainer">
+        <input class="slider" id="weightRange" type="range" min="20" max="300" value="120">
+    </div>
+    <div class="buttoncontainer">
+        <div id="dec" class="button">-</div>
+        <div id="inc" class="button">+</div>
     </div>
     <div class="tablecontainer">
-        <div class="tablediv">
-            <div class="displaycontainerw">
-                <div class="display">Peso</div>
-                <div class="display"><span id="weightDisplay"></span></div>
-            </div>
+        <div class="weightrow">
+            <div class="display">Peso</div>
+            <div class="display"><span id="weightDisplay"></span>&nbsp;Kg</div>
         </div>
-        <div class="tablediv">
-            <div class="displaycontainer">
-                <div class="display">Benuron</div>
-                <div class="display"><span id="benuronDisplay"></span></div>
-            </div>
+        <div class="displayrow">
+            <div class="display">Benuron</div>
+            <div class="display"><span id="benuronDisplay"></span>&nbsp;ml</div>
         </div>
-        <div class="tablediv">
-            <div class="displaycontainer">
-                <div class="display">Brufen 20mg</div>
-                <div class="display"><span id="brufen20Display"></span></div>
-            </div>
+        <div class="displayrow">
+            <div class="display">Brufen 20mg</div>
+            <div class="display"><span id="brufen20Display"></span>&nbsp;ml</div>
         </div>
-        <div class="tablediv">
-            <div class="displaycontainer">
-                <div class="display">Brufen 40mg</div>
-                <div class="display"><span id="brufen40Display"></span></div>
-            </div>
+        <div class="displayrow">
+            <div class="display">Brufen 40mg</div>
+            <div class="display"><span id="brufen40Display"></span>&nbsp;ml</div>
         </div>
     </div>
     <script src="calcdose.js"></script>

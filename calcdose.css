@@ -1,18 +1,18 @@
-.tablediv {
-    width: 100%;
-    display: table;
+h1 {
+    text-align: center;
+}
+
+body {
+    font-size: small;
+    font-family: sans-serif;
 }
 
 .slidecontainer {
-    width: 100%;
-    display: table-cell;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 8px 8px;
     vertical-align: middle;
-}
-
-.buttoncontainer {
-    width: 10%;
-    display: table-cell;
 }
 
 .slider {
@@ -50,6 +50,14 @@
     cursor: pointer;
 }
 
+.buttoncontainer {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 48px;
+}
+
 .button {
     background-color: #04AA6D;
     border: 2px solid white;
@@ -58,7 +66,6 @@
     padding: 8px 8px;
     text-align: center;
     text-decoration: none;
-    display: block;
     font-size: 28px;
     width: 48px;
 }
@@ -78,32 +85,27 @@
     margin-right: auto;
 }
 
-.displaycontainerw {
+.weightrow {
     background-color: #04AA6D;
-    /* border: 2px solid white; */
-    /* border-radius: 8px; */
     color: white;
     padding: 8px 8px;
     text-align: center;
     font-size: 28px;
+    margin: 4px;
     margin-bottom: 16px;
 }
 
-.displaycontainer {
+.displayrow {
     background-color: #53bacc;
-    /* border: 2px solid white; */
-    /* border-radius: 8px; */
     color: white;
     padding: 8px 8px;
     text-align: center;
     font-size: 28px;
+    margin: 4px;
 }
 
 .display {
     min-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     padding: 16px 24px;
-    /* border: 1px solid white; */
     display: table-cell;
 }
