@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="calcdose.css">
+</head>
+
+<body>
+    <h1>Round Range Slider</h1>
+
+    <div class="tablediv">
+        <div class="slidecontainer">
+            <input class="slider" id="weightRange" type="range" min="20" max="300" value="150">
+        </div>
+        <div>
+            <div class="buttoncontainer">
+                <div id="dec" class="button">-</div>
+                <div id="inc" class="button">+</div>
+            </div>
+        </div>
+    </div>
+    <div class="tablecontainer">
+        <div class="tablediv">
+            <div class="displaycontainerw">
+                <div class="display">Peso</div>
+                <div class="display"><span id="weightDisplay"></span></div>
+            </div>
+        </div>
+        <div class="tablediv">
+            <div class="displaycontainer">
+                <div class="display">Benuron</div>
+                <div class="display"><span id="benuronDisplay"></span></div>
+            </div>
+        </div>
+        <div class="tablediv">
+            <div class="displaycontainer">
+                <div class="display">Brufen 20mg</div>
+                <div class="display"><span id="brufen20Display"></span></div>
+            </div>
+        </div>
+        <div class="tablediv">
+            <div class="displaycontainer">
+                <div class="display">Brufen 40mg</div>
+                <div class="display"><span id="brufen40Display"></span></div>
+            </div>
+        </div>
+    </div>
+    <script src="calcdose.js"></script>
+</body>
+
+</html>
