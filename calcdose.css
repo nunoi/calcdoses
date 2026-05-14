@@ -113,12 +113,20 @@ body {
     text-align: left;
 }
 
-.displayinfo {
+.displayres {
     /*min-width: 100%;*/
     padding: 16px 24px;
     display: inline-block;
+    text-align: right;
+}
+
+.displayinfo {
+    /*min-width: 100%;*/
+    grid-column: 1/ span 2;
+    padding: 16px 24px;
+    display: inline-block;
     text-align: left;
-    font-size: 16px;
+    font-size: 24px;
     color: red;
 }
 
@@ -127,14 +135,7 @@ body {
     padding: 16px 24px;
     display: inline-block;
     text-align: right;
-    font-size: 16px;
-}
-
-.displayres {
-    /*min-width: 100%;*/
-    padding: 16px 24px;
-    display: inline-block;
-    text-align: right;
+    font-size: 24px;
 }
 
 /*
