@@ -2,11 +2,17 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="calcdose.css">
 </head>
 
 <body>
     <h1>Calculadora de doses</h1>
+
+    <!--
+    benuron: https://ben-u-ron.pt/ben-u-ron-xarope/#FIy
+    brufen: https://www.brufen.pt/pt-pt/produtos
+    -->
 
     <div class="slidecontainer">
         <input class="slider" id="weightRange" type="range" min="20" max="300" value="120">
@@ -23,14 +29,38 @@
         <div class="displayrow">
             <div class="display">Benuron</div>
             <div class="displayres"><span id="benuronDisplay"></span>&nbsp;ml</div>
+            <div class="displayinfo">
+                Intervalo min 6h (máx 15mg/kg/dose; máx 4x ao dia)
+            </div>
+            <div class="displaylink">
+                <a href="https://ben-u-ron.pt/ben-u-ron-xarope/#FIy">
+                Sítio oficial
+                </a>
+            </div>
         </div>
         <div class="displayrow">
             <div class="display">Brufen 20mg</div>
             <div class="displayres"><span id="brufen20Display"></span>&nbsp;ml</div>
+            <div class="displayinfo">
+                Intervalo min 8h (máx 30mg/kg/dia)
+            </div>
+            <div class="displaylink">
+                <a href="https://www.brufen.pt/pt-pt/produtos">
+                Sítio oficial
+                </a>
+            </div>
         </div>
         <div class="displayrow">
             <div class="display">Brufen 40mg</div>
             <div class="displayres"><span id="brufen40Display"></span>&nbsp;ml</div>
+            <div class="displayinfo">
+                Intervalo min 8h (máx 30mg/kg/dia)
+            </div>
+            <div class="displaylink">
+                <a href="https://www.brufen.pt/pt-pt/produtos">
+                Sítio oficial
+                </a>
+            </div>
         </div>
     </div>
     <script src="calcdose.js"></script>

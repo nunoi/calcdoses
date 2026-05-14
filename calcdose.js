@@ -1,3 +1,4 @@
+// calcdose
 var slider = document.getElementById("weightRange");
 var weightDisplay = document.getElementById("weightDisplay");
 var benuronDisplay = document.getElementById("benuronDisplay");
@@ -25,6 +26,12 @@ function handleInc() {
     updateWeight(weight);
 }
 
+// benuron
+// max dose: 15mg/kg/dose
+//
+// brufen
+// max dose: 20-30mg/kg/day
+// max dose: 6.6-10mg/kg/dose (8h interval)
 function updateWeight(w) {
     weightDisplay.innerHTML = Number(w / 10).toFixed(1);
     slider.value = weight;
