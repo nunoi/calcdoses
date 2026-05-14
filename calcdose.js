@@ -8,7 +8,13 @@ var brufen40Display = document.getElementById("brufen40Display");
 dec?.addEventListener("click", handleDec);
 inc?.addEventListener("click", handleInc);
 
-weight = slider.value;
+
+if (localStorage.getItem("weight") === null) {
+    weight = slider.value;
+} else {
+    weight = localStorage.getItem("weight");
+}
+
 updateWeight(weight);
 
 slider.oninput = function () {
@@ -26,6 +32,11 @@ function handleInc() {
     updateWeight(weight);
 }
 
+function saveWeight() {
+    w = weight.toString();
+    localStorage.setItem('weight', w);
+}
+
 // benuron
 // max dose: 15mg/kg/dose
 //
@@ -39,6 +50,8 @@ function updateWeight(w) {
     bru20 = Math.round((w / 10) * (7 / 20) * 10) / 10;
     bru40 = Math.round((w / 10) * (7 / 40) * 10) / 10;
     benuronDisplay.innerHTML = Number(ben).toFixed(1);
-    brufen20Display.innerHTML = Number(bru20).toFixed(1);;
-    brufen40Display.innerHTML = Number(bru40).toFixed(1);;
+    brufen20Display.innerHTML = Number(bru20).toFixed(1);
+    brufen40Display.innerHTML = Number(bru40).toFixed(1);
+    setTimeout(function() { saveWeight(); }, 5000);
+
 }
