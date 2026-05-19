@@ -1,5 +1,18 @@
 // calcdose
+
+function Child(name, weight) {
+    this.name = name;
+    this.weight = weight;
+}
+
+child = new Child("Criança1", 20);
+
+const children = [];
+
+children.push(child);
+
 var slider = document.getElementById("weightRange");
+var nameDisplay = document.getElementById("nameDisplay");
 var weightDisplay = document.getElementById("weightDisplay");
 var benuronDisplay = document.getElementById("benuronDisplay");
 var brufen20Display = document.getElementById("brufen20Display");
@@ -9,11 +22,14 @@ dec?.addEventListener("click", handleDec);
 inc?.addEventListener("click", handleInc);
 
 
-if (localStorage.getItem("weight") === null) {
-    weight = slider.value;
+if (localStorage.getItem("children") === null) {
+    // init example child
 } else {
-    weight = localStorage.getItem("weight");
+    // load pre-existing children
 }
+
+name = children[0].name;
+weight = children[0].weight;
 
 updateWeight(weight);
 
@@ -44,6 +60,7 @@ function saveWeight() {
 // max dose: 20-30mg/kg/day
 // max dose: 6.6-10mg/kg/dose (8h interval)
 function updateWeight(w) {
+    nameDisplay.innerHTML = name;
     weightDisplay.innerHTML = Number(w / 10).toFixed(1);
     slider.value = weight;
     ben = Math.round((w / 10) * (15 / 40) * 10) / 10;
