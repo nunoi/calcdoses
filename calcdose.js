@@ -17,9 +17,13 @@ var weightDisplay = document.getElementById("weightDisplay");
 var benuronDisplay = document.getElementById("benuronDisplay");
 var brufen20Display = document.getElementById("brufen20Display");
 var brufen40Display = document.getElementById("brufen40Display");
+var childDec = document.getElementById("cdec");
+var childInc = document.getElementById("cinc");
 
 dec?.addEventListener("click", handleDec);
 inc?.addEventListener("click", handleInc);
+cdec?.addEventListener("click", handleChildDec);
+cinc?.addEventListener("click", handleChildInc);
 
 
 if (localStorage.getItem("children") === null) {
@@ -46,6 +50,17 @@ function handleDec() {
 function handleInc() {
     weight = +weight + +1;
     updateWeight(weight);
+}
+
+function handleChildDec() {
+    weight = +weight - +1;
+    updateWeight(weight);
+}
+
+function handleChildInc() {
+    // weight = +weight + +1;
+    // updateWeight(weight);
+    childDec.removeAttribute('disabled');
 }
 
 function saveWeight() {

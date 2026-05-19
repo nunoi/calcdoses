@@ -98,6 +98,66 @@ body {
     cursor: pointer;
 }
 
+.cbutton[disabled] {
+    background-color: #04AA6D;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    color: lightgray;
+    text-align: center;
+    text-decoration: none;
+    /* width: px; */
+}
+
+.cbutton[disabled]:hover {
+    background-color: #04AA6D;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    color: lightgray;
+    text-align: center;
+    text-decoration: none;
+    cursor: not-allowed;
+    /* width: px; */
+}
+
+.addrmbutton {
+    background-color: #04AA6D;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    /* width: px; */
+}
+
+.addrmbutton:hover {
+    background-color: white;
+    border: 2px solid #04AA6D;
+    border-radius: 8px;
+    color: #04AA6D;
+    cursor: pointer;
+}
+
+.addrmbutton[disabled] {
+    background-color: #04AA6D;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    color: lightgray;
+    text-align: center;
+    text-decoration: none;
+    /* width: px; */
+}
+
+.addrmbutton[disabled]:hover {
+    background-color: #04AA6D;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    color: lightgray;
+    text-align: center;
+    text-decoration: none;
+    cursor: not-allowed;
+    /* width: px; */
+}
+
 .tablecontainer {
     max-width: fit-content;
     margin-left: auto;
@@ -106,7 +166,17 @@ body {
 
 .childrow {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: #04AA6D;
+    color: white;
+    padding: 8px 8px;
+    margin: 4px;
+    margin-bottom: 16px;
+}
+
+.addrmrow {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     background-color: #04AA6D;
     color: white;
     padding: 8px 8px;
@@ -142,7 +212,7 @@ body {
 }
 
 .displayname {
-    min-width: 100%;
+    /*min-width: 100%;*/
     padding: 16px 24px;
     display: inline-block;
     text-align: center;
@@ -163,6 +233,20 @@ body {
     text-align: left;
     font-size: 24px;
     color: red;
+}
+
+.rm {
+    /*min-width: 100%;*/
+    padding: 16px 24px;
+    display: inline-block;
+    text-align: left;
+}
+
+.add {
+    /*min-width: 100%;*/
+    padding: 16px 24px;
+    display: inline-block;
+    text-align: right;
 }
 
 /*
