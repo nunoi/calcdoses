@@ -1,15 +1,14 @@
 // calcdose
 
-function Child(name, weight) {
-    this.name = name;
-    this.weight = weight;
+class Child {
+    constructor(name, weight) {
+        this.name = name;
+        this.weight = weight;
+    }
 }
 
-child = new Child("Criança1", 20);
-
 const children = [];
-
-children.push(child);
+curChild = 0;
 
 var slider = document.getElementById("weightRange");
 var nameDisplay = document.getElementById("nameDisplay");
@@ -17,55 +16,67 @@ var weightDisplay = document.getElementById("weightDisplay");
 var benuronDisplay = document.getElementById("benuronDisplay");
 var brufen20Display = document.getElementById("brufen20Display");
 var brufen40Display = document.getElementById("brufen40Display");
-var childDec = document.getElementById("cdec");
-var childInc = document.getElementById("cinc");
 
 dec?.addEventListener("click", handleDec);
 inc?.addEventListener("click", handleInc);
 childDec?.addEventListener("click", handleChildDec);
 childInc?.addEventListener("click", handleChildInc);
-
+childDel?.addEventListener("click", handleChildDel);
+save?.addEventListener("click", saveData);
 
 if (localStorage.getItem("children") === null) {
-    // init example child
+    addChild();
 } else {
     // load pre-existing children
 }
 
-name = children[0].name;
-weight = children[0].weight;
-
-updateWeight(weight);
+updateDisplay(children[curChild]);
 
 slider.oninput = function () {
-    weight = this.value;
-    updateWeight(weight);
+    children[curChild].weight = this.value;
+    updateDisplay();
+}
+
+function addChild() {
+    num = children.length + 1;
+    child = new Child("Criança" + num, 100);
+    children.push(child);
+
 }
 
 function handleDec() {
-    weight = +weight - +1;
-    updateWeight(weight);
+    children[curChild].weight = +children[curChild].weight - +1;
+    updateDisplay();
 }
 
 function handleInc() {
-    weight = +weight + +1;
-    updateWeight(weight);
+    children[curChild].weight = +children[curChild].weight + +1;
+    updateDisplay();
 }
 
 function handleChildDec() {
-    weight = +weight - +1;
-    updateWeight(weight);
+    curChild -= 1;
+    nameDisplay.innerHTML = children[curChild].name;
+    weightDisplay.innerHTML = normWeight(children[curChild].weight);
+    if (curChild == 0) {
+        childDec.setAttribute('disabled', '');
+    }
 }
 
 function handleChildInc() {
-    // weight = +weight + +1;
-    // updateWeight(weight);
+    addChild();
+    curChild += 1;
+    nameDisplay.innerHTML = children[curChild].name;
+    weightDisplay.innerHTML = normWeight(children[curChild].weight);
     childDec.removeAttribute('disabled');
 }
 
-function saveWeight() {
-    w = weight.toString();
-    localStorage.setItem('weight', w);
+function handleChildDel() {
+    childDec.removeAttribute('disabled');
+}
+
+function saveData() {
+    save.setAttribute('disabled', '');
 }
 
 // benuron
@@ -74,16 +85,21 @@ function saveWeight() {
 // brufen
 // max dose: 20-30mg/kg/day
 // max dose: 6.6-10mg/kg/dose (8h interval)
-function updateWeight(w) {
-    nameDisplay.innerHTML = name;
-    weightDisplay.innerHTML = Number(w / 10).toFixed(1);
-    slider.value = weight;
+function updateDisplay() {
+    child = children[curChild];
+    w = child.weight;
+    nameDisplay.innerHTML = child.name;
+    weightDisplay.innerHTML = normWeight(child.weight);
+    slider.value = w;
     ben = Math.round((w / 10) * (15 / 40) * 10) / 10;
     bru20 = Math.round((w / 10) * (7 / 20) * 10) / 10;
     bru40 = Math.round((w / 10) * (7 / 40) * 10) / 10;
     benuronDisplay.innerHTML = Number(ben).toFixed(1);
     brufen20Display.innerHTML = Number(bru20).toFixed(1);
     brufen40Display.innerHTML = Number(bru40).toFixed(1);
-    setTimeout(function() { saveWeight(); }, 5000);
+    setTimeout(function() { saveData(); }, 5000);
+}
 
+function normWeight(w) {
+    return Number(w / 10).toFixed(1);
 }

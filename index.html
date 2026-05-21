@@ -17,6 +17,7 @@
         &#11166;   ⮞  => next child (create new child if there is no next child)
         &#128465;  🗑︎  => delete this child
         &#128427;  🖫  => save (disabled if already auto-saved)
+        &#128712;  🛈  => show more information
     -->
 
     <!--
@@ -43,15 +44,18 @@
                 <div class="display">Peso</div>
                 <div class="displayres"><span id="weightDisplay"></span>&nbsp;Kg</div>
             </div>    
-            <div class="weightrow">
+            <div class="childrow">
                 <div class="display">&nbsp;</div>
-                <div class="displayres"><span id="save">🖫</span></div>
+                <div class="display">&nbsp;</div>
+                <div class="display">&nbsp;</div>
+                <div id="save" class="cbutton"><span id="saveChar">🖫</span></div>
             </div>    
         </div>
         <div class="displayrow">
             <div class="display">Benuron</div>
             <div class="displayres"><span id="benuronDisplay"></span>&nbsp;ml</div>
             <div class="displayinfo">
+                🛈
                 Intervalo min 6h (máx 15mg/kg/dose)
                 <a href="https://ben-u-ron.pt/ben-u-ron-xarope/#FIy">
                 Sítio oficial
@@ -62,6 +66,7 @@
             <div class="display">Brufen 20mg</div>
             <div class="displayres"><span id="brufen20Display"></span>&nbsp;ml</div>
             <div class="displayinfo">
+                🛈
                 Intervalo min 8h (máx 30mg/kg/dia)
                 <a href="https://www.brufen.pt/pt-pt/produtos">
                 Sítio oficial
@@ -72,6 +77,7 @@
             <div class="display">Brufen 40mg</div>
             <div class="displayres"><span id="brufen40Display"></span>&nbsp;ml</div>
             <div class="displayinfo">
+                🛈
                 Intervalo min 8h (máx 30mg/kg/dia)
                 <a href="https://www.brufen.pt/pt-pt/produtos">
                 Sítio oficial
