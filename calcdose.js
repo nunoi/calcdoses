@@ -22,8 +22,8 @@ var childInc = document.getElementById("cinc");
 
 dec?.addEventListener("click", handleDec);
 inc?.addEventListener("click", handleInc);
-cdec?.addEventListener("click", handleChildDec);
-cinc?.addEventListener("click", handleChildInc);
+childDec?.addEventListener("click", handleChildDec);
+childInc?.addEventListener("click", handleChildInc);
 
 
 if (localStorage.getItem("children") === null) {

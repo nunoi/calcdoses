@@ -10,35 +10,43 @@
     <h1>Calculadora de doses</h1>
 
     <!--
+        used unicode chars
+        &#8854;    ⊖  => decrement weight
+        &#8853;    ⊕  => increment weight
+        &#11164;   ⮜  => previous child
+        &#11166;   ⮞  => next child (create new child if there is no next child)
+        &#128465;  🗑︎  => delete this child
+        &#128427;  🖫  => save (disabled if already auto-saved)
+    -->
+
+    <!--
     benuron: https://ben-u-ron.pt/ben-u-ron-xarope/#FIy
     brufen: https://www.brufen.pt/pt-pt/produtos
     -->
 
-    <div class="tablecontainer">
-<!--
-        <div class="childrow">
-            <div id="cdec" class="cbutton" disabled="false">⮜</div>
-            <div class="displayname"><span id="nameDisplay" contenteditable="plaintext-only"></span></div>
-            <div id="cinc" class="cbutton">⮞</div>
-        </div>
-        <div class="addrmrow">
-            <div id="rm" class="addrmbutton" disabled="false">Remove child</div>
-            <div class="displayname"><span id="nameDisplay" contenteditable="plaintext-only">&nbsp;</span></div>
-            <div id="add" class="addrmbutton">Add another child</div>
-        </div>
-    -->
-    </div>
-    <div class="slidecontainer">
-        <input class="slider" id="weightRange" type="range" min="20" max="300" value="120">
-    </div>
-    <div class="buttoncontainer">
-        <div id="dec" class="button">&#8854;</div>
-        <div id="inc" class="button">&#8853;</div>
-    </div>
-    <div class="tablecontainer">
-        <div class="weightrow">
-            <div class="display">Peso</div>
-            <div class="displayres"><span id="weightDisplay"></span>&nbsp;Kg</div>
+    <div class="maincontainer">
+        <div class="childcontainer">
+            <div class="childrow">
+                <div id="childDec" class="cbutton" disabled="false">⮜</div>
+                <div class="displayname"><span id="nameDisplay" contenteditable="plaintext-only">Criança1</span></div>
+                <div id="childInc" class="cbutton">⮞</div>
+                <div id="childDel" class="cbutton">🗑︎</div>
+            </div>
+            <div class="slidercontainer">
+                <input class="slider" id="weightRange" type="range" min="20" max="300" value="120">
+            </div>
+            <div class="buttoncontainer">
+                <div id="dec" class="button">&#8854;</div>
+                <div id="inc" class="button">&#8853;</div>
+            </div>
+            <div class="weightrow">
+                <div class="display">Peso</div>
+                <div class="displayres"><span id="weightDisplay"></span>&nbsp;Kg</div>
+            </div>    
+            <div class="weightrow">
+                <div class="display">&nbsp;</div>
+                <div class="displayres"><span id="save">🖫</span></div>
+            </div>    
         </div>
         <div class="displayrow">
             <div class="display">Benuron</div>
