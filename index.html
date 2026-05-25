@@ -10,26 +10,55 @@
     <h1>Calculadora de doses</h1>
 
     <!--
+        used unicode chars
+        &#8854;    ⊖  => decrement weight
+        &#8853;    ⊕  => increment weight
+        &#11164;   ⮜  => previous child
+        &#11166;   ⮞  => next child (create new child if there is no next child)
+        &#128465;  🗑︎  => delete this child
+        &#128427;  🖫  => save (disabled if already auto-saved)
+        &#128712;  🛈  => show more information
+        &#9675;    ○  => show more information
+        &#9679;    ●  => show more information
+    -->
+
+    <!--
     benuron: https://ben-u-ron.pt/ben-u-ron-xarope/#FIy
     brufen: https://www.brufen.pt/pt-pt/produtos
     -->
 
-    <div class="slidecontainer">
-        <input class="slider" id="weightRange" type="range" min="20" max="300" value="120">
-    </div>
-    <div class="buttoncontainer">
-        <div id="dec" class="button">&#8854;</div>
-        <div id="inc" class="button">&#8853;</div>
-    </div>
-    <div class="tablecontainer">
-        <div class="weightrow">
-            <div class="display">Peso</div>
-            <div class="displayres"><span id="weightDisplay"></span>&nbsp;Kg</div>
+    <div class="maincontainer">
+        <div class="childcontainer">
+            <div class="carouselrow">
+                <div><span id="carouselDisplay" contenteditable="plaintext-only">●</span></div>
+            </div>
+            <div class="childrow">
+                <div id="childDec" class="cbutton" disabled="false">⮜</div>
+                <div class="displayname"><span id="nameDisplay" contenteditable="plaintext-only">Criança1</span></div>
+                <div id="childInc" class="cbutton">⮞</div>
+            </div>
+            <div class="slidercontainer">
+                <input class="slider" id="weightRange" type="range" min="20" max="300" value="120">
+            </div>
+            <div class="buttoncontainer">
+                <div id="dec" class="button">&#8854;</div>
+                <div id="inc" class="button">&#8853;</div>
+            </div>
+            <div class="weightrow">
+                <div class="display">Peso</div>
+                <div class="displayres"><span id="weightDisplay"></span>&nbsp;Kg</div>
+            </div>    
+            <div class="childrow">
+                <div id="childDel" class="cbutton">🗑︎</div>
+                <div class="display">&nbsp;</div>
+                <div id="save" class="cbutton"><span id="saveChar">🖫</span></div>
+            </div>    
         </div>
         <div class="displayrow">
             <div class="display">Benuron</div>
             <div class="displayres"><span id="benuronDisplay"></span>&nbsp;ml</div>
             <div class="displayinfo">
+                🛈
                 Intervalo min 6h (máx 15mg/kg/dose)
                 <a href="https://ben-u-ron.pt/ben-u-ron-xarope/#FIy">
                 Sítio oficial
@@ -40,6 +69,7 @@
             <div class="display">Brufen 20mg</div>
             <div class="displayres"><span id="brufen20Display"></span>&nbsp;ml</div>
             <div class="displayinfo">
+                🛈
                 Intervalo min 8h (máx 30mg/kg/dia)
                 <a href="https://www.brufen.pt/pt-pt/produtos">
                 Sítio oficial
@@ -50,6 +80,7 @@
             <div class="display">Brufen 40mg</div>
             <div class="displayres"><span id="brufen40Display"></span>&nbsp;ml</div>
             <div class="displayinfo">
+                🛈
                 Intervalo min 8h (máx 30mg/kg/dia)
                 <a href="https://www.brufen.pt/pt-pt/produtos">
                 Sítio oficial
