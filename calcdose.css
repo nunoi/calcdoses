@@ -124,9 +124,18 @@ body {
     margin-bottom: 16px;
 }
 
+.carouselrow {
+/*    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    padding: 8px 8px;
+    margin: 4px; */
+    text-align: center;
+    font-size: 32px;
+}
+
 .childrow {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
 /*    padding: 8px 8px;
     margin: 4px; */
 }

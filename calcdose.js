@@ -11,6 +11,7 @@ const children = [];
 curChild = 0;
 
 var slider = document.getElementById("weightRange");
+var carouselDisplay = document.getElementById("carouselDisplay");
 var nameDisplay = document.getElementById("nameDisplay");
 var weightDisplay = document.getElementById("weightDisplay");
 var benuronDisplay = document.getElementById("benuronDisplay");
@@ -23,6 +24,7 @@ childDec?.addEventListener("click", handleChildDec);
 childInc?.addEventListener("click", handleChildInc);
 childDel?.addEventListener("click", handleChildDel);
 save?.addEventListener("click", saveData);
+nameDisplay?.addEventListener("focusout", handleNameChange);
 
 if (localStorage.getItem("children") === null) {
     addChild();
@@ -30,10 +32,13 @@ if (localStorage.getItem("children") === null) {
     // load pre-existing children
 }
 
-updateDisplay(children[curChild]);
+hasChanged = false;
+timerID = 0;
+updateDisplay();
 
 slider.oninput = function () {
     children[curChild].weight = this.value;
+    hasChanged = true;
     updateDisplay();
 }
 
@@ -41,16 +46,26 @@ function addChild() {
     num = children.length + 1;
     child = new Child("Criança" + num, 100);
     children.push(child);
+    hasChanged = true;
+}
 
+function handleNameChange() {
+    // alert("bla bla name changed");
+    if (children[curChild].name !== nameDisplay.innerHTML) {
+        children[curChild].name = nameDisplay.innerHTML;
+    }
+    hasChanged = true;
 }
 
 function handleDec() {
     children[curChild].weight = +children[curChild].weight - +1;
+    hasChanged = true;
     updateDisplay();
 }
 
 function handleInc() {
     children[curChild].weight = +children[curChild].weight + +1;
+    hasChanged = true;
     updateDisplay();
 }
 
@@ -58,25 +73,32 @@ function handleChildDec() {
     curChild -= 1;
     nameDisplay.innerHTML = children[curChild].name;
     weightDisplay.innerHTML = normWeight(children[curChild].weight);
-    if (curChild == 0) {
-        childDec.setAttribute('disabled', '');
-    }
+    updateDisplay();
 }
 
 function handleChildInc() {
-    addChild();
     curChild += 1;
+    if (curChild + 1 > children.length) {
+        addChild();
+    }
     nameDisplay.innerHTML = children[curChild].name;
     weightDisplay.innerHTML = normWeight(children[curChild].weight);
-    childDec.removeAttribute('disabled');
+    updateDisplay();
 }
 
 function handleChildDel() {
-    childDec.removeAttribute('disabled');
+    children.splice(curChild, 1);
+    if (children.length == 0) {
+        addChild();
+    }
+    hasChanged = true;
+    updateDisplay();
 }
 
 function saveData() {
-    save.setAttribute('disabled', '');
+    hasChanged = false;
+    clearTimeout(timerID);
+    updateDisplay();
 }
 
 // benuron
@@ -86,6 +108,7 @@ function saveData() {
 // max dose: 20-30mg/kg/day
 // max dose: 6.6-10mg/kg/dose (8h interval)
 function updateDisplay() {
+    // alert(curChild + " : " + children.length);
     child = children[curChild];
     w = child.weight;
     nameDisplay.innerHTML = child.name;
@@ -97,7 +120,28 @@ function updateDisplay() {
     benuronDisplay.innerHTML = Number(ben).toFixed(1);
     brufen20Display.innerHTML = Number(bru20).toFixed(1);
     brufen40Display.innerHTML = Number(bru40).toFixed(1);
-    setTimeout(function() { saveData(); }, 5000);
+    updateCarousel();
+    if (curChild == 0) {
+        childDec.setAttribute('disabled', '');
+    } else {
+        childDec.removeAttribute('disabled');
+    }
+    if (hasChanged) {
+        timerID = setTimeout(function () { saveData(); }, 10000);
+        save.removeAttribute('disabled');
+    } else {
+        save.setAttribute('disabled', '');
+    }
+}
+
+function updateCarousel() {
+    max = children.length;
+    str = "";
+    for (let i = 0; i < max; i++) {
+        curChild === i ? sub = "●" : sub = "○";
+        str += sub;
+    }
+    carouselDisplay.innerHTML = str;
 }
 
 function normWeight(w) {
