@@ -7,7 +7,7 @@ class Child {
     }
 }
 
-const children = [];
+let children = [];
 curChild = 0;
 
 var slider = document.getElementById("weightRange");
@@ -26,10 +26,11 @@ childDel?.addEventListener("click", handleChildDel);
 save?.addEventListener("click", saveData);
 nameDisplay?.addEventListener("focusout", handleNameChange);
 
-if (localStorage.getItem("children") === null) {
+if (localStorage.getItem("data") === null) {
     addChild();
 } else {
-    // load pre-existing children
+    obj = localStorage.getItem("data");
+    children = JSON.parse(obj);
 }
 
 hasChanged = false;
@@ -91,6 +92,9 @@ function handleChildDel() {
     if (children.length == 0) {
         addChild();
     }
+    if (curChild >= children.length) {
+        curChild--;
+    }
     hasChanged = true;
     updateDisplay();
 }
@@ -99,6 +103,7 @@ function saveData() {
     hasChanged = false;
     clearTimeout(timerID);
     updateDisplay();
+    localStorage.setItem("data", JSON.stringify(children));
 }
 
 // benuron
@@ -127,7 +132,7 @@ function updateDisplay() {
         childDec.removeAttribute('disabled');
     }
     if (hasChanged) {
-        timerID = setTimeout(function () { saveData(); }, 10000);
+        // timerID = setTimeout(function () { saveData(); }, 10000);
         save.removeAttribute('disabled');
     } else {
         save.setAttribute('disabled', '');
