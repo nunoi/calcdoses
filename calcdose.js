@@ -7,9 +7,6 @@ class Child {
     }
 }
 
-let children = [];
-curChild = 0;
-
 var slider = document.getElementById("weightRange");
 var carouselDisplay = document.getElementById("carouselDisplay");
 var nameDisplay = document.getElementById("nameDisplay");
@@ -26,6 +23,11 @@ childDel?.addEventListener("click", handleChildDel);
 save?.addEventListener("click", saveData);
 nameDisplay?.addEventListener("focusout", handleNameChange);
 
+let children = [];
+curChild = 0;
+hasChanged = false;
+timerID = 0;
+
 if (localStorage.getItem("data") === null) {
     addChild();
 } else {
@@ -33,12 +35,12 @@ if (localStorage.getItem("data") === null) {
     children = JSON.parse(obj);
 }
 
-hasChanged = false;
-timerID = 0;
 updateDisplay();
 
 slider.oninput = function () {
+    // alert(children[curChild].name);
     children[curChild].weight = this.value;
+    handleNameChange();
     hasChanged = true;
     updateDisplay();
 }
