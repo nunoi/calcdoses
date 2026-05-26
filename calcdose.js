@@ -134,7 +134,7 @@ function updateDisplay() {
         childDec.removeAttribute('disabled');
     }
     if (hasChanged) {
-        // timerID = setTimeout(function () { saveData(); }, 10000);
+        timerID = setTimeout(function () { saveData(); }, 10000);
         save.removeAttribute('disabled');
     } else {
         save.setAttribute('disabled', '');
