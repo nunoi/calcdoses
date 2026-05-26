@@ -13,13 +13,14 @@
         used unicode chars
         &#8854;    ⊖  => decrement weight
         &#8853;    ⊕  => increment weight
+        &#9675;    ○  => show more information
+        &#9679;    ●  => show more information
+        // ! not available in android and no longer used
         &#11164;   ⮜  => previous child
         &#11166;   ⮞  => next child (create new child if there is no next child)
         &#128465;  🗑︎  => delete this child
         &#128427;  🖫  => save (disabled if already auto-saved)
         &#128712;  🛈  => show more information
-        &#9675;    ○  => show more information
-        &#9679;    ●  => show more information
     -->
 
     <!--
@@ -33,9 +34,9 @@
                 <div><span id="carouselDisplay" contenteditable="plaintext-only">●</span></div>
             </div>
             <div class="childrow">
-                <div id="childDec" class="cbutton" disabled="false">⮜</div>
+                <div id="childDec" class="cbutton" disabled="false">&laquo;</div>
                 <div class="displayname"><span id="nameDisplay" contenteditable="plaintext-only">Criança1</span></div>
-                <div id="childInc" class="cbutton">⮞</div>
+                <div id="childInc" class="cbutton">&raquo;</div>
             </div>
             <div class="slidercontainer">
                 <input class="slider" id="weightRange" type="range" min="20" max="300" value="120">
@@ -49,9 +50,9 @@
                 <div class="displayres"><span id="weightDisplay"></span>&nbsp;Kg</div>
             </div>    
             <div class="childrow">
-                <div id="childDel" class="cbutton">🗑︎</div>
+                <div id="childDel" class="cbutton"><span id="delChar" style="font-size: 50%; vertical-align: middle;">Apagar</span></div>
                 <div class="display">&nbsp;</div>
-                <div id="save" class="cbutton"><span id="saveChar">🖫</span></div>
+                <div id="save" class="cbutton"><span id="saveChar" style="font-size: 50%; vertical-align: middle;">Gravar</span></div>
             </div>    
         </div>
         <div class="displayrow">

@@ -37,7 +37,9 @@ body {
     appearance: none;
     width: 2rem;
     height: 3rem;
-    border-radius: 50%;
+    background-color: #04AA6D;
+    border: 2px solid;
+    border-color: white;
     cursor: pointer;
 }
 
